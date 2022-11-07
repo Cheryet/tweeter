@@ -1,0 +1,56 @@
+
+form {
+  border: 1px solid red;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+textarea { 
+  width: 80%;
+  height: 7px;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom: 5px solid;
+  border-bottom-style: outset;
+  background-color: #f4f1ec;
+  overflow: visible;
+  text-overflow: ellipsis;
+}
+
+textarea, label {
+  align-self: flex-start;
+  margin-left: 10%;
+}
+
+textarea:focus {
+  outline: none;
+  min-height: 32px;
+  height: auto;
+}
+
+label {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.submit-counter {
+  width: 80%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+button {
+  color: white;
+  background-color: #4056A1;
+  font-family: 'Bungee', sans-serif;
+
+}
+
+output {
+  font-family: 'Bungee', sans-serif;
+}
