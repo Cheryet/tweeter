@@ -24,13 +24,13 @@ span {
   justify-content: center;
 }
 
-.new-tweet p {
+.write-new-tweet p {
   margin-bottom: 0px;
   z-index: 9;
 
 }
 
-.new-tweet i {
+.write-new-tweet i {
   color: red;
   z-index: 8;
 
