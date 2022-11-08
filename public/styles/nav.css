@@ -16,7 +16,7 @@ span {
   padding-top: 60px;
 }
 
-.new-tweet {
+.write-new-tweet {
   margin-right: 1.5em;
   display: flex;
   flex-direction: column;

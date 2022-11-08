@@ -1,13 +1,13 @@
 
 form {
   border: 1px solid red;
-  width: 80%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 textarea { 
-  width: 80%;
+  width: 90%;
   height: 7px;
   border-top-style: hidden;
   border-right-style: hidden;
@@ -21,7 +21,7 @@ textarea {
 
 textarea, label {
   align-self: flex-start;
-  margin-left: 10%;
+  margin-left: 5%;
 }
 
 textarea:focus {
@@ -36,7 +36,7 @@ label {
 }
 
 .submit-counter {
-  width: 80%;
+  width: 90%;
   margin-top: 1rem;
   display: flex;
   flex-direction: row;
@@ -52,4 +52,7 @@ button {
 
 output {
   font-family: 'Bungee', sans-serif;
+}
+.compose-tweet {
+  text-align: center;
 }
