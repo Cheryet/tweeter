@@ -26,10 +26,12 @@ span {
 
 .new-tweet p {
   margin-bottom: 0px;
+  z-index: 9;
 
 }
 
 .new-tweet i {
   color: red;
+  z-index: 8;
 
 }
