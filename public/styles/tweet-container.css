@@ -8,7 +8,7 @@ article {
 }
 
 article:hover {
-  filter: drop-shadow(5px 5px 4px #878787);
+  filter: drop-shadow(7px 7px 4px #878787);
   
 }
 
@@ -39,6 +39,7 @@ article:hover {
 hr {
   border: 0.1rem solid #878787;
   background-color: #878787;
+  margin: 0px;
 }
 
 .posted-tweet {
