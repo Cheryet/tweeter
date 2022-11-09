@@ -7,6 +7,8 @@
 
 $(document).ready(function() {
 
+  console.log('Hello From APP.JS')
+
   const createTweetElement = function (object) {
     const $tweet = $(
       `<article class="tweet-container">
@@ -41,13 +43,30 @@ $(document).ready(function() {
 
   }
 
-  $('.submit-form').submit(function () {
+  //reasign our form to a variable
+  const tweetForm = $('#tweet-form')
+  
+  //handler function for our form submit
+  const handleTweetForm = (event) => {
+    //prevents submit to happen through browser
     event.preventDefault();
-  })
+    console.log('Hello from SUBMIT!!')
+    
+    //reasigns textarea input value
+    const tweetInput = $('#tweet-text').val()
+    console.log(tweetInput)
 
-  const $button = $('submit-button').on('click', function () {
+    //send input data post route to convert to json
+    $.post( "/tweets", tweetForm.serialize() );
+  
+  }
+  
 
-  })
+  tweetForm.submit(handleTweetForm)
+  
+  
+  
+
 
   
 
