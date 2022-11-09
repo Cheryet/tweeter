@@ -57,18 +57,20 @@ $(document).ready(function() {
     const tweetInput = $('#tweet-text').val()
     console.log(tweetInput)
 
+    //Shows error message if input is null/empty
     if (tweetInput === '' || tweetInput === null){
-      $('.error-text').text('Error: Input field is empty, add a Tweet')
+      return $('.error-text').text('Error: Input field is empty, add a Tweet')
     }
     
+    //error message if input is too long
     if (tweetInput.length > 140) {
-      $('.error-text').text('Error: Tweet is too long')
-
+      return $('.error-text').text('Error: Tweet is too long')
     }
 
     //send input data post route to convert to json
     $.post( "/tweets", tweetForm.serialize() );
-  
+    console.log(tweetForm)
+    return $('.error-text').text('')
   }
 
   //takes json data with GET route to /tweets and returns them in browser
@@ -76,20 +78,15 @@ $(document).ready(function() {
     $.get('/tweets', function(data) {
       console.log('Data Type: ' ,typeof data)
       console.log(data)
-      renderTweets(data)
+       return renderTweets(data)
     })
 
-    
-    
-    
-    
   }
   
-  loadTweets()
-
-  tweetForm.submit(handleTweetForm)
   
-  //renderTweets(data);
+  tweetForm.submit(handleTweetForm)
+  loadTweets()
+  
 })
 
 
