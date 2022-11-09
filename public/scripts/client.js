@@ -10,6 +10,7 @@ $(document).ready(function() {
   console.log('Hello From APP.JS')
 
   const createTweetElement = function (object) {
+    //Fills in HTML template below with new tweet data
     const $tweet = $(
       `<article class="tweet-container">
           <header class="tweet-container-header">
@@ -35,7 +36,7 @@ $(document).ready(function() {
   }
 
   const renderTweets = function (array) {
-    
+    //pushes all tweets through to new tweet html template
     for (let obj of array) {
       const $tweet = createTweetElement(obj);
       $('.tweet-feed').append($tweet);
