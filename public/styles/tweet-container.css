@@ -18,8 +18,9 @@ article:hover {
 }
 
 .profile-pic {
-  width: 75px;
-  height: 75px;
+  width: 45px;
+  height: 45px;
+  margin-right: 0.5rem;
 }
 
 .user-firstname {
