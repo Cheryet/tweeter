@@ -9,6 +9,12 @@ $(document).ready(function() {
 
   console.log('Hello From APP.JS')
 
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const createTweetElement = function (object) {
     //Fills in HTML template below with new tweet data
     const $tweet = $(
@@ -20,7 +26,7 @@ $(document).ready(function() {
             </div>
             <p class="user-name">${object.user.handle}</p>
           </header>
-          <p class="posted-tweet">${object.content.text}</p>
+          <p class="posted-tweet">${escape(object.content.text)}</p>
           <hr>
           <footer class="tweet-container-footer">
             <p class="date-text">${timeago.format(object.created_at)}</p>
@@ -71,6 +77,7 @@ $(document).ready(function() {
     //Shows error message if input is null/empty
     if (tweetInput === '' || tweetInput === null){
       return $('.error-text').text('Error: Input field is empty, add a Tweet')
+      
     }
     
     //error message if input is too long
