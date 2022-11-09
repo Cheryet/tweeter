@@ -57,6 +57,15 @@ $(document).ready(function() {
     const tweetInput = $('#tweet-text').val()
     console.log(tweetInput)
 
+    if (tweetInput === '' || tweetInput === null){
+      $('.error-text').text('Error: Input field is empty, add a Tweet')
+    }
+    
+    if (tweetInput.length > 140) {
+      $('.error-text').text('Error: Tweet is too long')
+
+    }
+
     //send input data post route to convert to json
     $.post( "/tweets", tweetForm.serialize() );
   
