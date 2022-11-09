@@ -57,3 +57,7 @@ output {
 .compose-tweet {
   text-align: center;
 }
+
+.error-text {
+  color: red;
+}
