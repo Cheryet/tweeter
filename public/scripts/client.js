@@ -39,14 +39,25 @@ $(document).ready(function() {
     //pushes all tweets through to new tweet html template
     for (let obj of array) {
       const $tweet = createTweetElement(obj);
-      $('.tweet-feed').append($tweet);
+      $('.tweet-feed').prepend($tweet);
     }
 
   }
 
+  //takes json data with GET route to /tweets and returns them in browser
+  const loadTweets = () => {
+    $.get('/tweets', function(data) {
+      console.log('Data Type: ' ,typeof data)
+      console.log(data)
+      return renderTweets(data)
+    })
+  }
+  
+
   //reasign our form to a variable
   const tweetForm = $('#tweet-form')
-  
+    
+
   //handler function for our form submit
   const handleTweetForm = (event) => {
     //prevents submit to happen through browser
@@ -70,18 +81,21 @@ $(document).ready(function() {
     //send input data post route to convert to json
     $.post( "/tweets", tweetForm.serialize() );
     console.log(tweetForm)
-    return $('.error-text').text('')
+    $('.error-text').text('')
+
+    //clears counter after submition
+    const inputArea = $("textarea[name='text']")
+    inputArea.val('')
+    inputArea.trigger('input')
+
+    loadTweets();
+
+
+
+
+    
   }
 
-  //takes json data with GET route to /tweets and returns them in browser
-  const loadTweets = () => {
-    $.get('/tweets', function(data) {
-      console.log('Data Type: ' ,typeof data)
-      console.log(data)
-       return renderTweets(data)
-    })
-
-  }
   
   
   tweetForm.submit(handleTweetForm)

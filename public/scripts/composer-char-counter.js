@@ -8,6 +8,8 @@ $(document).ready(function() {
     let count = total - length;
     $('output[name="counter"]').text(count)
 
+    
+
     //adjusts colour of counter
     if (count < 0 ) {
       $('output[name="counter"]').css({'color': 'red'})
