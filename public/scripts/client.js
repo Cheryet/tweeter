@@ -6,6 +6,7 @@
 
 
 $(document).ready(function() {
+
   const createTweetElement = function (object) {
     const $tweet = $(
       `<article class="tweet-container">
@@ -39,6 +40,16 @@ $(document).ready(function() {
     }
 
   }
+
+  $('.submit-form').submit(function () {
+    event.preventDefault();
+  })
+
+  const $button = $('submit-button').on('click', function () {
+
+  })
+
+  
 
   const data = [
     {
