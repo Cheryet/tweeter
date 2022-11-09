@@ -23,7 +23,7 @@ $(document).ready(function() {
           <p class="posted-tweet">${object.content.text}</p>
           <hr>
           <footer class="tweet-container-footer">
-            <p class="date-text">${object.created_at}</p>
+            <p class="date-text">${timeago.format(object.created_at)}</p>
             <div class="icons">
               <i class="fa-solid fa-flag fa-2xs"></i>
               <i class="fa-solid fa-retweet fa-2xs"></i>
@@ -62,6 +62,7 @@ $(document).ready(function() {
   
   }
 
+  //takes json data with GET route to /tweets and returns them in browser
   const loadTweets = () => {
     $.get('/tweets', function(data) {
       console.log('Data Type: ' ,typeof data)
