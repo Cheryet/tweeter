@@ -7,9 +7,6 @@
 
 $(document).ready(function () {
 
-  //REMOVE - Test to confirm linking
-  console.log('Hello From APP.JS')
-
   //Prevents XSS
   const escape = function (str) {
     let div = document.createElement("div");
@@ -49,17 +46,16 @@ $(document).ready(function () {
     //empties tweet feed to prevent duplicates
     $('.tweet-feed').empty();
 
-    //loads all tweets to feed
+    //loads all tweets to feed in chronological order
     for (let obj of array) {
       const $tweet = createTweetElement(obj);
       $('.tweet-feed').prepend($tweet);
     }
   }
 
-  //Gets Json data and returns them in html on browser
+  //Gets Json data and returns it in html on browser
   const loadTweets = () => {
     $.get('/tweets', function(data) {
-      console.log('contents of Load Tweets:', data)
       return renderTweets(data)
     })
   }
@@ -73,31 +69,25 @@ $(document).ready(function () {
   const handleTweetForm = (event) => {
     //prevents submit to happen through browser
     event.preventDefault();
-    console.log('Hello from SUBMIT!!')
     
     //reasigns textarea input value
     const tweetInput = $('#tweet-text').val()
-    console.log('Tweet Input = ',tweetInput)
 
     //Shows error message if input is null/empty
     if (tweetInput === '' || tweetInput === null){
       return $('.error-text').text('Error: Input field is empty, add a Tweet')
     }
 
-    console.log('Tweet Length is > 0')
-    
-    //error message if input is too long
+    //Shows error message if input is too long
     if (tweetInput.length > 140) {
       return $('.error-text').text('Error: Tweet is too long')
     }
 
-    console.log('Tweet length is < 140')
-
-    
-
-    //send input data post route to convert to json
+    //Post route for form data to Json file/tweets
     $.post( "/tweets", tweetForm.serialize() );
     console.log('contents of Tweet Form:',tweetForm)
+
+    //clears errror text from screen if present
     $('.error-text').empty()
 
     //clears counter after submition
@@ -110,7 +100,7 @@ $(document).ready(function () {
   }
 
   
-  //Async Loads tweet into feed upon submition
+  //Async loads tweets into feed upon form submition
   tweetForm.submit(handleTweetForm)
 
   //inital Load of tweets from database
