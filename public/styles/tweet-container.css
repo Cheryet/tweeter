@@ -14,6 +14,12 @@ article:hover {
   
 }
 
+hr {
+  border: 0.1rem solid #878787;
+  background-color: #878787;
+  margin: 0px;
+}
+
 .tweet-container-header {
   display: flex;
   justify-content: space-between;
@@ -37,12 +43,6 @@ article:hover {
 
 .user-name {
   color: #6383eb90;
-}
-
-hr {
-  border: 0.1rem solid #878787;
-  background-color: #878787;
-  margin: 0px;
 }
 
 .posted-tweet {

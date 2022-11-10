@@ -33,15 +33,6 @@ label {
 
 }
 
-.submit-counter {
-  width: 100%;
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-
 button {
   color: white;
   background-color: #4056A1;
@@ -52,6 +43,16 @@ button {
 output {
   font-family: 'Bungee', sans-serif;
 }
+
+.submit-counter {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .compose-tweet {
   text-align: center;
 }
