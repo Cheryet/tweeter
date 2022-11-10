@@ -5,17 +5,17 @@
  */
 
 
-$(document).ready(function () {
+$(document).ready(function() {
 
   //Prevents XSS
-  const escape = function (str) {
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
   //Fills in HTML template with new tweet data
-  const createTweetElement = function (object) {
+  const createTweetElement = function(object) {
     const $tweet = $(
       `<article class="tweet-container">
           <header class="tweet-container-header">
@@ -36,12 +36,12 @@ $(document).ready(function () {
             </div>
           </footer>
         </article>`
-    )
+    );
     return $tweet;
-  }
+  };
 
   //pushes all tweets through to new tweet html template
-  const renderTweets = function (array) {
+  const renderTweets = function(array) {
 
     //empties tweet feed to prevent duplicates
     $('.tweet-feed').empty();
@@ -51,18 +51,18 @@ $(document).ready(function () {
       const $tweet = createTweetElement(obj);
       $('.tweet-feed').prepend($tweet);
     }
-  }
+  };
 
   //Gets Json data and returns it in html on browser
   const loadTweets = () => {
     $.get('/tweets', function(data) {
-      return renderTweets(data)
-    })
-  }
+      return renderTweets(data);
+    });
+  };
   
 
   //reasign our form to a variable
-  const tweetForm = $('#tweet-form')
+  const tweetForm = $('#tweet-form');
     
 
   //handler function for our form submit
@@ -71,42 +71,42 @@ $(document).ready(function () {
     event.preventDefault();
     
     //reasigns textarea input value
-    const tweetInput = $('#tweet-text').val()
+    const tweetInput = $('#tweet-text').val();
 
     //Shows error message if input is null/empty
-    if (tweetInput === '' || tweetInput === null){
-      return $('.error-text').text('Error: Input field is empty, add a Tweet')
+    if (tweetInput === '' || tweetInput === null) {
+      return $('.error-text').text('Error: Input field is empty, add a Tweet');
     }
 
     //Shows error message if input is too long
     if (tweetInput.length > 140) {
-      return $('.error-text').text('Error: Tweet is too long')
+      return $('.error-text').text('Error: Tweet is too long');
     }
 
     //Post route for form data to Json file/tweets
-    $.post( "/tweets", tweetForm.serialize() );
-    console.log('contents of Tweet Form:',tweetForm)
+    $.post("/tweets", tweetForm.serialize());
+    console.log('contents of Tweet Form:',tweetForm);
 
     //clears errror text from screen if present
-    $('.error-text').empty()
+    $('.error-text').empty();
 
     //clears counter after submition
-    const inputArea = $("textarea[name='text']")
-    inputArea.val('')
-    inputArea.trigger('input')
+    const inputArea = $("textarea[name='text']");
+    inputArea.val('');
+    inputArea.trigger('input');
 
     loadTweets();
     
-  }
+  };
 
   
   //Async loads tweets into feed upon form submition
-  tweetForm.submit(handleTweetForm)
+  tweetForm.submit(handleTweetForm);
 
   //inital Load of tweets from database
-  loadTweets()
+  loadTweets();
   
-})
+});
 
 
 
