@@ -5,18 +5,20 @@
  */
 
 
-$(document).ready(function() {
+$(document).ready(function () {
 
+  //REMOVE - Test to confirm linking
   console.log('Hello From APP.JS')
 
+  //Prevents XSS
   const escape = function (str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
+  //Fills in HTML template with new tweet data
   const createTweetElement = function (object) {
-    //Fills in HTML template below with new tweet data
     const $tweet = $(
       `<article class="tweet-container">
           <header class="tweet-container-header">
@@ -41,8 +43,10 @@ $(document).ready(function() {
     return $tweet;
   }
 
+  //pushes all tweets through to new tweet html template
   const renderTweets = function (array) {
-    //pushes all tweets through to new tweet html template
+    //empties tweet feed to prevent duplicates
+    $('.tweet-feed').empty();
     for (let obj of array) {
       const $tweet = createTweetElement(obj);
       $('.tweet-feed').prepend($tweet);
@@ -53,8 +57,7 @@ $(document).ready(function() {
   //takes json data with GET route to /tweets and returns them in browser
   const loadTweets = () => {
     $.get('/tweets', function(data) {
-      console.log('Data Type: ' ,typeof data)
-      console.log(data)
+      console.log('contents of Load Tweets:', data)
       return renderTweets(data)
     })
   }
@@ -72,23 +75,28 @@ $(document).ready(function() {
     
     //reasigns textarea input value
     const tweetInput = $('#tweet-text').val()
-    console.log(tweetInput)
+    console.log('Tweet Input = ',tweetInput)
 
     //Shows error message if input is null/empty
     if (tweetInput === '' || tweetInput === null){
       return $('.error-text').text('Error: Input field is empty, add a Tweet')
-      
     }
+
+    console.log('Tweet Length is > 0')
     
     //error message if input is too long
     if (tweetInput.length > 140) {
       return $('.error-text').text('Error: Tweet is too long')
     }
 
+    console.log('Tweet length is < 140')
+
+    
+
     //send input data post route to convert to json
     $.post( "/tweets", tweetForm.serialize() );
-    console.log(tweetForm)
-    $('.error-text').text('')
+    console.log('contents of Tweet Form:',tweetForm)
+    $('.error-text').empty()
 
     //clears counter after submition
     const inputArea = $("textarea[name='text']")
@@ -96,16 +104,14 @@ $(document).ready(function() {
     inputArea.trigger('input')
 
     loadTweets();
-
-
-
-
     
   }
 
   
-  
+  //Async Loads tweet into feed upon submition
   tweetForm.submit(handleTweetForm)
+  
+  //inital Load of tweets from database
   loadTweets()
   
 })
