@@ -20,8 +20,8 @@ Tweeter is a simple, responsive single-page AJAX based Twitter clone that utiliz
 
 ## Final Product
 
-### Desktop Layout
+#### Desktop Layout
 ![ScreenShot](https://github.com/Cheryet/tweeter/blob/master/public/images/desktop-layout.png)
 
-### Mobile Layout
+#### Mobile Layout
 ![ScreenShot](https://github.com/Cheryet/tweeter/blob/master/public/images/mobile-layout.png)
