@@ -30,6 +30,7 @@ main {
   width: 90%;
   background-color: #f4f1ec;
   align-self: center;
+  margin-top: 50px;
 }
 
 
@@ -49,5 +50,19 @@ main {
 
 
 @media only screen and (min-width: 1024px) {
+
+  body {
+    flex-direction: row;
+    justify-content: space-around;
+    
+  }
+
+  main {
+    max-width: 50%;
+    min-width: 50%;
+    margin-top: 200px;
+    margin-left: 150px;
+    margin-right: 50px;
+  }
   
 }

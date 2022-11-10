@@ -6,7 +6,7 @@ form {
   align-items: center;
 }
 textarea { 
-  width: 90%;
+  width: 100%;
   height: 42px;
   border-top-style: hidden;
   border-right-style: hidden;
@@ -20,7 +20,6 @@ textarea {
 
 textarea, label {
   align-self: flex-start;
-  margin-left: 5%;
 }
 
 textarea:focus {
@@ -31,11 +30,11 @@ textarea:focus {
 label {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 600;
-  margin-bottom: 0.75rem;
+
 }
 
 .submit-counter {
-  width: 90%;
+  width: 100%;
   margin-top: 1rem;
   display: flex;
   flex-direction: row;
@@ -73,5 +72,7 @@ output {
 
 
 @media only screen and (min-width: 1024px) {
+
+  
   
 }

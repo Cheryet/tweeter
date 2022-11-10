@@ -1,7 +1,7 @@
 /* Mobile Layout */
 
 .main-header {
-  height: 520px;
+  height: 350px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,9 @@
 }
 
 .my-profile-pic {
-  margin-top: 160px;
+  margin-top:50px;
+  width: 200px;
+  height: 200px;
 }
 
 .profile-name {
@@ -23,6 +25,23 @@
 /* Tablet Layout */
 
 @media only screen and (min-width: 768px) {
+  
+  .main-header {
+    height: 450px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFD052;
+    background-image: url(../images/background-texture-2.png);
+  }
+  .my-profile-pic {
+    margin-top:50px;
+    width: 256px;
+    height: 256px;
+   
+  }
 
 }
 
@@ -30,5 +49,20 @@
 
 
 @media only screen and (min-width: 1024px) {
-  
+
+  .main-header {
+    width: 400px;
+    height: 375px;
+    margin-top: 200px;
+    margin-left: 50px;
+  }
+
+  .my-profile-pic {
+    margin: 0px;
+    margin-top: 25px;
+    width: 256px;
+    height: 256px;
+    
+  }
+
 }
