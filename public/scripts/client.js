@@ -45,16 +45,18 @@ $(document).ready(function () {
 
   //pushes all tweets through to new tweet html template
   const renderTweets = function (array) {
+
     //empties tweet feed to prevent duplicates
     $('.tweet-feed').empty();
+
+    //loads all tweets to feed
     for (let obj of array) {
       const $tweet = createTweetElement(obj);
       $('.tweet-feed').prepend($tweet);
     }
-
   }
 
-  //takes json data with GET route to /tweets and returns them in browser
+  //Gets Json data and returns them in html on browser
   const loadTweets = () => {
     $.get('/tweets', function(data) {
       console.log('contents of Load Tweets:', data)
@@ -110,7 +112,7 @@ $(document).ready(function () {
   
   //Async Loads tweet into feed upon submition
   tweetForm.submit(handleTweetForm)
-  
+
   //inital Load of tweets from database
   loadTweets()
   
