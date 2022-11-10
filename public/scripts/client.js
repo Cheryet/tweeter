@@ -85,7 +85,6 @@ $(document).ready(function() {
 
     //Post route for form data to Json file/tweets
     $.post("/tweets", tweetForm.serialize());
-    console.log('contents of Tweet Form:',tweetForm);
 
     //clears errror text from screen if present
     $('.error-text').empty();
