@@ -1,3 +1,4 @@
+/* Mobile Layout */
 
 form {
   display: flex;
@@ -60,4 +61,17 @@ output {
   color: red;
   font-size: 1rem;
   font-weight: bold;
+}
+
+/* Tablet Layout */
+
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Desktop Layout */
+
+
+@media only screen and (min-width: 1024px) {
+  
 }

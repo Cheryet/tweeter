@@ -1,3 +1,5 @@
+/* Mobile Layout */
+
 article {
   display: block;
   border: 0.25rem solid #6d6d6d;
@@ -69,6 +71,19 @@ hr {
 
 .icons i:hover{
   color: #ffbb00;
+}
+
+/* Tablet Layout */
+
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Desktop Layout */
+
+
+@media only screen and (min-width: 1024px) {
+  
 }
 
 
